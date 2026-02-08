@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EMI Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+  <h1>EMI Calculator</h1>
+  <div class="row">
+    <!-- LEFT COLUMN -->
+    <div class="left-column">
+      <div class="box">
+        <p>Loan Amount (₹)</p>
+        <input type="number" id="amount" placeholder="Enter Loan Amount" />
+
+        <p>Interest Rate (%)</p>
+        <input type="number" id="interest" placeholder="Enter Interest Rate" step="0.01" />
+
+        <p>Loan Tenure (Years / Months)</p>
+        <input type="number" id="loanTenure" placeholder="Enter Duration" />
+
+        <div class="tenure-options">
+          <input type="radio" name="tenureType" id="year" checked />
+          <label for="year">Yearly</label>
+
+          <input type="radio" name="tenureType" id="month" />
+          <label for="month">Monthly</label>
+        </div>
+
+        <button class="btn" id="calculate">Calculate</button>
+        <button class="btn" id="save">Save Result</button>
+      </div>
+
+      <div class="box vertical-output">
+        <p><strong>EMI</strong></p>
+        <span id="emi"></span>
+
+        <p><strong>Total Interest</strong></p>
+        <span id="totalInterest"></span>
+
+        <p><strong>Total Payment</strong></p>
+        <span id="totalPayment"></span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+      <div class="box">
+        <h2>EMI Breakdown Chart</h2>
+        <div class="chart-wrapper">
+          <canvas id="emiChart"></canvas>
+        </div>
+        <!-- SAVED HISTORY INSIDE RIGHT COLUMN BELOW CHART -->
+        <div class="history-container">
+          <h2>Saved History</h2>
+          <ul id="historyList"></ul>
+          <button class="btn danger" id="clearHistory">Clear All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
